@@ -1,58 +1,73 @@
+import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
     return (
         <div>
             <div className="navbar bg-base-100">
-                <div className="flex">
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                <div className="flex-1">
+                    <a className="btn btn-ghost text-xl">pti</a>
                 </div>
-                <div className="flex-1 gap-5 justify-center">
-                    <div className="form-control ">
-                        <input type="text" placeholder="Search" className="input input-bordered  md:w-auto" />
-                    </div>
-                    <div>
+                <div className="flex-1">
 
-                        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown hover <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                        </svg>
-                        </button>
-
-                        
-                        <div id="dropdownHover" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                                <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <form>
+                        <label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
+                            Search
+                        </label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg
+                                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                                    />
+                                </svg>
                             </div>
+                            <input
+                                type="search"
+                                id="search"
+                                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Search Audiobook"
+                                required
+                            />
+
                         </div>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    </form>
+
+                </div>
+                <div>
+                    <div className="flex-none">
+                        <ul className="menu menu-horizontal px-5">
                             <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
+                                <details>
+                                    <summary>
+                                        Menu
+                                    </summary>
+                                    <ul className="p-3 bg-white rounded-t-none">
+                                        <li><a>Home</a></li>
+                                        <li><a>Details</a></li>
+                                        <li><a>Category</a></li>
+                                        <li><a>My Favourites</a></li>
+                                        <li><a>Profile</a></li>
+                                        <li><a>LogIn/SignUp</a></li>
+                                    </ul>
+                                </details>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
                         </ul>
                     </div>
+                </div>
+                <div className="flex-none">
+                    <button className="btn btn-square bg-orange-500 hover:bg-orange-500 text-white btn-ghost">
+                        <FaUser></FaUser>
+                    </button>
                 </div>
             </div>
         </div>

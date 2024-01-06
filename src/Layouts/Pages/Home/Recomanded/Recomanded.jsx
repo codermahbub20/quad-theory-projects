@@ -5,11 +5,20 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { Pagination } from 'swiper/modules';
+import { useForm } from 'react-hook-form';
 
 
 
 const Recomanded = () => {
     const [recommendedItem, setRecommendedItem] = useState([])
+
+    const { register, handleSubmit } = useForm();
+
+    const handleCreateAssignment = (data) => {
+        // Handle form submission logic here
+        console.log(data);
+
+    };
 
     useEffect(() => {
         fetch('http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10')
@@ -23,12 +32,108 @@ const Recomanded = () => {
     return (
         <div>
 
-            <div className=' flex justify-between mb-3'>
+            <div className=' flex justify-between mb-5'>
                 <div>
                     <h1 className='text-2xl font-medium'>Recommended</h1>
                 </div>
                 <div>
-                    <button className='btn'>Add More</button>
+
+
+                    {/* The button to open modal */}
+                    <label htmlFor="my_modal_6" className="btn btn-sm text-orange-500">AddMore</label>
+
+                    {/* Put this part before </body> tag */}
+                    <input type="checkbox" id="my_modal_6" className="modal-toggle" />
+                    <div className="modal" role="dialog">
+                        <div className="modal-box">
+
+
+                            <form onSubmit={handleSubmit(handleCreateAssignment)}>
+                                <div className='md:px-24'>
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text  text-xl">Name</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Name"
+                                            className="input input-bordered"
+                                            name='title'
+                                            {...register('title')}
+                                        />
+                                    </div>
+                                    <div className="form-control  w-full">
+                                        <label className="label">
+                                            <span className="label-text text-xl">Image Url</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Image Url"
+                                            className="input input-bordered"
+                                            name='description'
+                                            {...register('description')}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className=' md:px-24'>
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text text-xl">Price</span>
+                                        </label>
+                                        <input
+                                            type="number"
+                                            defaultValue={0}
+                                            placeholder="Price"
+                                            className="input input-bordered"
+                                            name='mark'
+                                            {...register('mark')}
+                                        />
+                                    </div>
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text  text-xl">IsPopular</span>
+                                        </label>
+                                        <select
+                                            name="level"
+                                            className="select text-xl select-ghost w-full  input  input-bordered"
+                                            {...register('level')}
+                                        >
+                                            <option disabled selected>IsPopular</option>
+                                            <option>true</option>
+                                            <option>false</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className='md:px-24'>
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text  text-xl">IsPopular</span>
+                                        </label>
+                                        <select
+                                            name="level"
+                                            className="select text-xl select-ghost w-full  input  input-bordered"
+                                            {...register('level')}
+                                        >
+                                            <option disabled selected>IsRecommended</option>
+                                            <option>true</option>
+                                            <option>false</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="modal-action">
+                                    <label htmlFor="my_modal_6" className="btn w-3/4 bg-orange-500 hover:bg-orange-500 text-white mx-auto">Add Item</label>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
