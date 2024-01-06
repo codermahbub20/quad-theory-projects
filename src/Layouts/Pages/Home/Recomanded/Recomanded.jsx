@@ -8,14 +8,14 @@ import { Pagination } from 'swiper/modules';
 
 
 
-const Popular = () => {
-    const [popularItem, setPopularItem] = useState([])
+const Recomanded = () => {
+    const [recommendedItem, setRecommendedItem] = useState([])
 
     useEffect(() => {
         fetch('http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10')
             .then(res => res.json())
             .then(data => {
-                setPopularItem(data.Items)
+                setRecommendedItem(data.Items)
             })
     }, [])
 
@@ -25,7 +25,7 @@ const Popular = () => {
 
             <div className=' flex justify-between mb-3'>
                 <div>
-                    <h1 className='text-2xl font-medium'>Popular</h1>
+                    <h1 className='text-2xl font-medium'>Recommended</h1>
                 </div>
                 <div>
                     <button className='btn'>Add More</button>
@@ -52,7 +52,7 @@ const Popular = () => {
                 }}
             >
                 {
-                    popularItem?.filter((item) => item?.IsPopular === true)?.map(item => <SwiperSlide key={item.Id}>
+                    recommendedItem?.filter((item) => item?.IsRecommended === true)?.map(item => <SwiperSlide key={item.Id}>
                         <img className='h-[300px] w-[200px] rounded-xl' src={item?.ImageUrl} alt="" />
                         <h1 className='text-xl text-center mb-10  mt-2'>{item?.Name}</h1>
                     </SwiperSlide>)
@@ -64,4 +64,4 @@ const Popular = () => {
     );
 };
 
-export default Popular;
+export default Recomanded;
