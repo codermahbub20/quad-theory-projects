@@ -34,7 +34,7 @@ const Navbar = () => {
                             <input
                                 type="search"
                                 id="search"
-                                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="block sm:w-[200px] md:w-[300px] p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search Audiobook"
                                 required
                             />
@@ -44,11 +44,11 @@ const Navbar = () => {
 
                 </div>
                 <div>
-                    <div className="flex-none">
+                    <div className="flex-none md:mr-24">
                         <ul className="menu menu-horizontal px-5">
                             <li>
                                 <details>
-                                    <summary>
+                                    <summary className="text-xl">
                                         Menu
                                     </summary>
                                     <ul className="p-3 bg-white rounded-t-none">
@@ -64,9 +64,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="flex-none">
-                    <button className="btn btn-square bg-orange-500 hover:bg-orange-500 text-white btn-ghost">
-                        <FaUser></FaUser>
+                <div className="flex-none hidden md:block">
+                    <button className="btn btn-square  bg-orange-500 hover:bg-orange-500 text-white btn-ghost">
+                        <FaUser className="h-5 w-5"></FaUser>
                     </button>
                 </div>
             </div>
